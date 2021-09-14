@@ -1,0 +1,20 @@
+why we need of docker:
+   Developer ready with application and working fine in ihis environment, coming to production some critria or some issues are raised because of diffent between computing environment dev to product
+2.
+ micro services
+3 main advantage of micro service 
+	>those application are easy to maintain and build when they are broken into small picecs
+	> dependency conserve very less(adding new feauters to service or small pices)
+	> any of the modular or service are down not effect to other
+disadvantage: wastes of resources
+
+
+docker engine is top
+with help of docker engine docker conatiners are formed.in this conatiners applications are running.
+the requried binaries and libaraies are in the container it self only.
+inside one docker engine multiple docker containers are running.
+
+docker conatiners are run time instance of docker image
+ 
+docker compose---suppose we have multiple applications on various conatiners all those containers are actually linked together but we wannt to run all the conatiners by a single command byusing docker compose.
+docker-compose up

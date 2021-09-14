@@ -1,0 +1,77 @@
+
+Install Jenkins in GCP
+
+SET UP THE REPOSITORY
+
+$ sudo apt-get update
+
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+
+Add Docker’s official GPG key:
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+$ sudo apt-key fingerprint 0EBFCD88
+
+pub   rsa4096 2017-02-22 [SCEA]
+      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid           [ unknown] Docker Release (CE deb) <docker@docker.com>
+sub   rsa4096 2017-02-22 [S]
+
+x86_64 / amd64
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+INSTALL DOCKER ENGINE
+$ sudo apt-get update
+ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+CHANGE THE ROOT
+sudo su - test
+check your docker version
+docker version
+sudo usermod -aG docker $USER && newgrp docker
+
+pull all ayour images
+docker run hello-world
+
+create volume
+docker volume create jenkinsvol
+
+to run your docker
+docker run -u root -d --name myjenkins_server -p 9080:8080 -p 9096:9096 -v jenkinsvol:/var/Jenkins_home/workspace jenkins/jenkins:lts
+
+to show all images
+docker images
+
+
+docker ps -a
+
+to show what are the running
+docker ps
+
+goto web hit your ip address
+
+
+after that for initial admin pwd
+
+docker exec -it myjenkins_server /bin/bash
+cat //////
+
+to stop your jenkins
+docker stop myjenkins_server
+
+to restart your jenkins
+docker start myjenkins_server
+
+to listen which port is:
+sudo lsof -nP -iTCP -sTCP:LISTEN
+
+
+
